@@ -6,9 +6,8 @@ Pour ce faire vous devez :
 * Ecrire la fonction python `import_intercom()` dans le fichier `app.py` du dossier `fargate1` pour extraite toutes les données des users et des conversations.
 * Stocker ces données dans un bucket S3
 * Ecrire la fonction python `etl_datalake_to_datawarehouse` dans le fichier `app.py` du dossier `fargate2` pour transférer les données de la S3 sur la database
-* Lire le bucket S3 et stocker les données voulues dans la bdd aurora en suivant le schéma des tables.
 * Déployer les images docker sur AWS
-* Run à la main les ECS
+* Run les tasks ECS manuellement (sans orchestrateur)
 
 ## Info d'environnement
 
@@ -41,7 +40,6 @@ Pour ce faire vous devez :
     
 ## Optionnels
 
-* limiter l'accès du user test à un seul bucket S3 en écriture et lecture à partir d'IAM
 * écrire un script de CD dans github action qui publie les containers docker à chaque commit
 * remonter les erreurs de vos scripts fargate dans un compte sentry
 * brancher datadog (ou un autre) sur le compte AWS que l'on vous a donné
@@ -52,3 +50,9 @@ Pour ce faire vous devez :
 * lire seulement l'utilisateur qui est donnée
 * vider la table de aurora à chaque exécution du fargate pour etre rempli de nouveau
 * ré-écrire le fichier dans le datalake à chaque appel sur intercom
+
+
+## Support
+
+* https://developers.intercom.com/intercom-api-reference/v2.0/reference -> API de référence Intercom
+* Pour toute question, contacter alexis@nalia.io
