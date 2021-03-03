@@ -2,21 +2,36 @@
 
 ## Info d'environnement
 
-* api intercom : ``...``
-    * user à lire : ``...``
-* datalake (bucket S3) : ``...``
-* chemin du fichier à écrire : ``s3://.../users/{user_id}.json``
-* datawarehouse (aurora) : ``[connection string]``
-* endpoint de ECR pour déployer les images : ``...``
+* api intercom : token = "dG9rOmVkNGViN2IxX2RmY2NfNDlkMV9hM2E4XzcxNDIxMDQ1ZmNiYzoxOjA="
+    * users à lire : tous (9)
+    * conversations à lire : toutes
+* datalake (bucket S3) : ``nalia-technical-test``
+* chemin du fichier à écrire : ``s3://data/users.json``
+* datawarehouse (aurora) :
+	* `mdp : Pb81F7RFQaPHKWGnLk5q`
+	* `user : admin`
+	* `port : 3306`
+	* `host : database-2.cgvivklne8l4.eu-west-3.rds.amazonaws.com`
+	* `db : naliatest`
+	* Tables :
+		* conversation
+		* users
+* endpoint de ECR pour déployer les images : 
+	* Scrapping image : 974801592436.dkr.ecr.eu-west-3.amazonaws.com/scrapping
+	* Push db image : 974801592436.dkr.ecr.eu-west-3.amazonaws.com/database
 
-* optionnels
+* Connection console AWS
+    * `ID Organisation : 974801592436`
+    * `user : test`
+    * `password : test-technique1`
 
-    * role pré-crée pour exécuter le code fargate : ``...``
-    * table aurora sur laquelle mettre les données : ``...``
+* Accès AWS par programmation
+    * `Acces key : AKIA6F5VT4B2FFBHZTFO`
+    * `secret key : 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`
     
 ## Optionnels
 
-* limiter l'accès du role ``...`` à un seul bucket S3 en écriture et lecture à partir d'IAM
+* limiter l'accès du user test à un seul bucket S3 en écriture et lecture à partir d'IAM
 * écrire un script de CD dans github action qui publie les containers docker à chaque commit
 * remonter les erreurs de vos scripts fargate dans un compte sentry
 * brancher datadog (ou un autre) sur le compte AWS que l'on vous a donné
@@ -26,4 +41,4 @@
 * utiliser des variables en dur dans le code
 * lire seulement l'utilisateur qui est donnée
 * vider la table de aurora à chaque exécution du fargate pour etre rempli de nouveau
-* ré-écrire le fichier dans le datalake à chaque appel sur intercom
+* ré*écrire le fichier dans le datalake à chaque appel sur intercom
