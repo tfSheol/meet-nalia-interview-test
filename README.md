@@ -1,12 +1,22 @@
 # Test technique Nalia
 
+## Consignes
+L'objectif de ce test est de récupérer par API des données sur Intercom et de les stocker dans une base de donnée sur AWS.
+Pour ce faire vous devez : 
+* Ecrire la fonction python `import_intercom()` dans le fichier `app.py` du dossier `fargate1` pour extraite toutes les données des users et des conversations.
+* Stocker ces données dans un bucket S3
+* Ecrire la fonction python `etl_datalake_to_datawarehouse` dans le fichier `app.py` du dossier `fargate2` pour transférer les données de la S3 sur la database
+* Lire le bucket S3 et stocker les données voulues dans la bdd aurora en suivant le schéma des tables.
+* Déployer les images docker sur AWS
+* Run à la main les ECS
+
 ## Info d'environnement
 
 * api intercom : token = `dG9rOmVkNGViN2IxX2RmY2NfNDlkMV9hM2E4XzcxNDIxMDQ1ZmNiYzoxOjA=`
     * users à lire : `tous (9)`
     * conversations à lire : `toutes`
 * datalake (bucket S3) : ``nalia-technical-test``
-* chemin du fichier à écrire : ``s3://data/users.json``
+* chemin du fichier à écrire : ``s3://data/users.json`` et ``s3://data/conversations.json``
 * datawarehouse (aurora) :
 	* `mdp : Pb81F7RFQaPHKWGnLk5q`
 	* `user : admin`
@@ -41,4 +51,4 @@
 * utiliser des variables en dur dans le code
 * lire seulement l'utilisateur qui est donnée
 * vider la table de aurora à chaque exécution du fargate pour etre rempli de nouveau
-* ré*écrire le fichier dans le datalake à chaque appel sur intercom
+* ré-écrire le fichier dans le datalake à chaque appel sur intercom
