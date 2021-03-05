@@ -3,7 +3,7 @@
 ## Consignes
 L'objectif de ce test est de récupérer par API des données sur Intercom et de les stocker dans une base de donnée sur AWS.
 Pour ce faire vous devez : 
-* Ecrire la fonction python `import_intercom()` dans le fichier `app.py` du dossier `fargate1` pour extraite toutes les données des users et des conversations.
+* Ecrire la fonction python `import_intercom()` dans le fichier `app.py` du dossier `fargate1` pour extraite toutes les données des contacts et des conversations.
 * Stocker ces données dans un bucket S3
 * Ecrire la fonction python `etl_datalake_to_datawarehouse` dans le fichier `app.py` du dossier `fargate2` pour transférer les données de la S3 sur la database
 * Déployer les images docker sur AWS
@@ -12,7 +12,7 @@ Pour ce faire vous devez :
 ## Info d'environnement
 
 * api intercom : token = `dG9rOmVkNGViN2IxX2RmY2NfNDlkMV9hM2E4XzcxNDIxMDQ1ZmNiYzoxOjA=`
-    * users à lire : `tous (9)`
+    * contacts à lire : `tous (9)`
     * conversations à lire : `toutes`
 * datalake (bucket S3) : ``nalia-technical-test``
 * chemin du fichier à écrire : ``s3://data/users.json`` et ``s3://data/conversations.json``
