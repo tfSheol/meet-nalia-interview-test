@@ -56,3 +56,27 @@ Pour ce faire vous devez :
 
 * https://developers.intercom.com/intercom-api-reference/v2.0/reference -> API de référence Intercom
 * Pour toute question, contacter alexis@nalia.io
+
+## Memo
+
+```bash
+crudini --get fargate1/config.ini AWS access_key
+```
+
+* https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
+* https://github.com/pascalgn/automerge-action
+
+
+```bash
+aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 974801592436.dkr.ecr.eu-west-3.amazonaws.com
+docker build -t database .
+docker tag database:latest 974801592436.dkr.ecr.eu-west-3.amazonaws.com/database:latest
+docker push 974801592436.dkr.ecr.eu-west-3.amazonaws.com/database:latest
+```
+
+```bash
+aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 974801592436.dkr.ecr.eu-west-3.amazonaws.com
+docker build -t scrapping .
+docker tag scrapping:latest 974801592436.dkr.ecr.eu-west-3.amazonaws.com/scrapping:latest
+docker push 974801592436.dkr.ecr.eu-west-3.amazonaws.com/scrapping:latest
+```
