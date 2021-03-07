@@ -64,4 +64,4 @@ crudini --get fargate1/config.ini AWS access_key
 ```
 
 * https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
-* https://github.com/pascalgn/automerge-action
+* https://github.com/pascalgn/automerge-action (When a pull request is merged by this action, the merge will not trigger other GitHub workflows. Similarly, when another GitHub workflow creates a pull request, this action will not be triggered. This is because an action in a workflow run can't trigger a new workflow run. However, the workflow_run event is triggered as expected.)
