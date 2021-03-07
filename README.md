@@ -11,7 +11,7 @@ Pour ce faire vous devez :
 
 ## Info d'environnement
 
-* api intercom : token = `dG9rOmVkNGViN2IxX2RmY2NfNDlkMV9hM2E4XzcxNDIxMDQ1ZmNiYzoxOjA=`
+* api intercom : token = `dG9rOjI2N2JmN2VlX2E0MmNfNGFlYl9hZmI4XzRjOGZlYWU0NjMxOToxOjA=`
     * contacts à lire : `tous (9)`
     * conversations à lire : `toutes`
 * datalake (bucket S3) : ``nalia-technical-test``
