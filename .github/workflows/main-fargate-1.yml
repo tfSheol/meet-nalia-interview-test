@@ -13,6 +13,7 @@ jobs:
         name: Add crudini
         run: |
           sudo apt-get install -y crudini
+          ls -lR
           echo "P_DOCKER_IMAGE=$(crudini --get fargate1/config.ini Docker image)" >> $GITHUB_ENV
           echo "P_AWS_ACCESS_KEY=$(crudini --get fargate1/config.ini AWS access_key)" >> $GITHUB_ENV
           echo "P_AWS_SECRET=$(crudini --get fargate1/config.ini AWS secret)" >> $GITHUB_ENV
