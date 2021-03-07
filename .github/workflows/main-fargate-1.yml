@@ -12,6 +12,9 @@ jobs:
       -
         name: Add crudini
         run: sudo apt-get install -y crudini
+        run: echo "P_DOCKER_IMAGE=$(crudini --get fargate1/config.ini Docker image)" >> $GITHUB_ENV
+        run: echo "P_AWS_ACCESS_KEY=$(crudini --get fargate1/config.ini AWS access_key)" >> $GITHUB_ENV
+        run: echo "P_AWS_SECRET=$(crudini --get fargate1/config.ini AWS secret)" >> $GITHUB_ENV
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -22,9 +25,9 @@ jobs:
         name: Login to ECR
         uses: docker/login-action@v1
         with:
-          registry: $(crudini --get fargate1/config.ini Docker image)
-          username: $(crudini --get fargate1/config.ini AWS access_key)
-          password: $(crudini --get fargate1/config.ini AWS secret)
+          registry: ${{ env.P_DOCKER_IMAGE }}
+          username: ${{ env.P_AWS_ACCESS_KEY }}
+          password: ${{ env.P_AWS_SECRET }}
       -
         name: Build and push
         id: docker_build
