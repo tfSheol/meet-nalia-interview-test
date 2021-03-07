@@ -6,21 +6,13 @@ on:
       - 'dev'
 
 jobs:
-  createPullRequest:
+  pull-request:
     runs-on: ubuntu-latest
     steps:
-      -
-        uses: actions/checkout@v2
-      -
-        name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v3
-        with:
-          commit-message: Merge dev to master
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          branch: master
-          base: dev
-          title: '[AUTO] Merge'
-          labels: |
-            automerge
+    - uses: actions/checkout@v2
+    - name: pull-request
+      uses: repo-sync/pull-request@v2
+      with:
+        destination_branch: "master"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        pr_label: "automerge"
