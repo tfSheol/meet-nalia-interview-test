@@ -1,3 +1,4 @@
 configparser
 requests
 boto3
+sentry-sdk
