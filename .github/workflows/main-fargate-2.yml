@@ -6,7 +6,7 @@ on:
       - 'master'
 
 jobs:
-  docker-scrapping:
+  docker-database:
     runs-on: ubuntu-latest
     steps:
       -
@@ -16,9 +16,9 @@ jobs:
         name: Add crudini
         run: |
           sudo apt-get install -y crudini
-          echo "P_DOCKER_IMAGE=$(crudini --get fargate1/config.ini Docker image)" >> $GITHUB_ENV
-          echo "P_AWS_ACCESS_KEY=$(crudini --get fargate1/config.ini AWS access_key)" >> $GITHUB_ENV
-          echo "P_AWS_SECRET=$(crudini --get fargate1/config.ini AWS secret)" >> $GITHUB_ENV
+          echo "P_DOCKER_IMAGE=$(crudini --get fargate2/config.ini Docker image)" >> $GITHUB_ENV
+          echo "P_AWS_ACCESS_KEY=$(crudini --get fargate2/config.ini AWS access_key)" >> $GITHUB_ENV
+          echo "P_AWS_SECRET=$(crudini --get fargate2/config.ini AWS secret)" >> $GITHUB_ENV
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
@@ -37,8 +37,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: fargate1/
-          file: fargate1/Dockerfile
+          context: fargate2/
+          file: fargate2/Dockerfile
           push: true
           tags: ${{ env.P_DOCKER_IMAGE }}:latest
       -

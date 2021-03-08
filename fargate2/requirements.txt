@@ -1,2 +1,4 @@
 configparser
+mysql.connector
 boto3
+sentry-sdk
