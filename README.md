@@ -5,9 +5,9 @@ L'objectif de ce test est de récupérer par API des données sur Intercom et de
 Pour ce faire vous devez : 
 - [x] Ecrire la fonction python `import_intercom()` dans le fichier `app.py` du dossier `fargate1` pour extraite toutes les données des contacts et des conversations.
 - [x] Stocker ces données dans un bucket S3
-- [] Ecrire la fonction python `etl_datalake_to_datawarehouse` dans le fichier `app.py` du dossier `fargate2` pour transférer les données de la S3 sur la database
+- [x] Ecrire la fonction python `etl_datalake_to_datawarehouse` dans le fichier `app.py` du dossier `fargate2` pour transférer les données de la S3 sur la database
 - [x] Déployer les images docker sur AWS
-- [] Run les tasks ECS manuellement (sans orchestrateur)
+- [ ] Run les tasks ECS manuellement (sans orchestrateur)
 	- pb: je n'ai as les autorisations pour créer une instance fargate
 
 ## Info d'environnement
@@ -47,7 +47,7 @@ Pour ce faire vous devez :
 		- build de l'image docker et push sur le registry d'ECS (AWS) (uniquement depuis master)
 - [x] remonter les erreurs de vos scripts fargate dans un compte sentry
 	- simple implémentation (je n'ai pas encore poussé les tests et erreurs possibles)
-- [] brancher datadog (ou un autre) sur le compte AWS que l'on vous a donné
+- [ ] brancher datadog (ou un autre) sur le compte AWS que l'on vous a donné
 	- pb: je n'ai as les autorisations pour créer une instance (ou tâche) fargate
 	- https://docs.datadoghq.com/fr/integrations/ecs_fargate/?tab=fluentbitetfirelens
     
@@ -55,7 +55,7 @@ Pour ce faire vous devez :
 
 - [x] utiliser des variables en dur dans le code
 	- j'ai préféré utiliser des fichiers de configuration
-- [] lire seulement l'utilisateur qui est donnée
+- [ ] lire seulement l'utilisateur qui est donnée
 - [x] vider la table de aurora à chaque exécution du fargate pour etre rempli de nouveau
 	- utilisation de `Truncate` en sql
 - [x] ré-écrire le fichier dans le datalake à chaque appel sur intercom
